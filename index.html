@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta 
       name="viewport" 
-      content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" 
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0, user-scalable=yes"
     />
     <title>TORNEO DEL SICCOMARIO</title>
     <style>
@@ -12,21 +12,29 @@
         margin: 0;
         padding: 0;
         height: 100%;
+        overflow: auto;
       }
-      body {
-        touch-action: pan-x pan-y; /* consente il pinch-to-zoom */
+      #zoom-container {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        touch-action: manipulation; /* evita di bloccare gesture */
+        -webkit-overflow-scrolling: touch;
       }
       iframe {
-        width: 100%;
-        height: 100vh;
+        width: 1000px;
+        height: 800px;
         border: none;
+        transform-origin: top left;
       }
     </style>
   </head>
   <body>
-    <iframe 
-      src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRLg5-vTT-Pf-hgzD6FWmPbA2zpt0U5MLLPP7VHm7MXEqc2KH0WbMvWoSuAbrk-4w/pubhtml?gid=1692754438&single=true&widget=false&headers=false"
-      allow="fullscreen">
-    </iframe>
+    <div id="zoom-container">
+      <iframe 
+        src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRLg5-vTT-Pf-hgzD6FWmPbA2zpt0U5MLLPP7VHm7MXEqc2KH0WbMvWoSuAbrk-4w/pubhtml?gid=1692754438&single=true&widget=false&headers=false"
+        allow="fullscreen">
+      </iframe>
+    </div>
   </body>
 </html>
